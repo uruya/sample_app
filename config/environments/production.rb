@@ -67,14 +67,14 @@ Rails.application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  host = 'sleepy-temple-5665.herokuapp.com'
+  host = 'https://sleepy-temple-5665.herokuapp.com'
   config.action_mailer.default_url_options = { host: host }
   ActionMailer::Base.smtp_settings = {
-    :port   => ENV['MAILGUN_SMTP_PORT'],
-    :address    => ENV['MAILGUN_SMTP_SERVER'],
+    :port   => '587',
+    :address    => 'smtp.mailgun.org',
     :user_name    => ENV['MAILGUN_SMTP_LOGIN'],
     :password   => ENV['MAILGUN_SMTP_PASSWORD'],
-    :domain   => host,
+    :domain   => 'heroku.com',
     :authentication   => :plain,
   }
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
